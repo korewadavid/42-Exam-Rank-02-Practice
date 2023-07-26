@@ -30,7 +30,7 @@ int ft_atoi(char *str)
 
 int main (int argc, char **argv)
 {
-	if (argc != 2 || ft_atoi(argv[1]) < 0)
+	if (argc != 2)
 	{
 		int num = ft_atoi(argv[1]);
 		int i = 0;
