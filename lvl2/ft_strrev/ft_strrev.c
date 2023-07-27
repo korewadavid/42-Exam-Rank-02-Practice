@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 
 char	*ft_strrev(char *str)
 {
@@ -9,19 +10,21 @@ char	*ft_strrev(char *str)
 
 	while (str[len] != '\0')
 		len++;
-	while (i <= len)
+	while (i < --len)
 	{
 		temp = str[i];
 		str[i] = str[len];
-		str[len] = len;
+		str[len] = temp;
 		i++;
-		len--;
 	}
 	return (str);
 }
 
 int main()
 {
-	printf("%s\n", ft_strrev("abc"));
+	char *str = "abc";
+	char cpydStr[3];
+	strcpy(cpydStr, str);
+	printf("%s\n", ft_strrev(cpydStr));
 	return(0);
 }
