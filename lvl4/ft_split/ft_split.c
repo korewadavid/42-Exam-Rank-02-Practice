@@ -1,16 +1,33 @@
 #include <stdlib.h>
+ 
+// 1. Count the number of substrings/words
+// 2. Alocate memory for the array of substrings
+// 3. Split the string into substrings based on the delimiter
+// 4. Copy each substring into the allocated memory
+// 5. Return the array of substrings
 
-//	Subcomponents of a project (slot machine 
+char *ft_strncpy(char *s1, char *s2, int size);
 
-// 1. Deposit some money
-// 2. Determine number of lines to bet on
-// 3. Collect a bet amount
-// 4. Spn the slot machine
-// 5. Check if the user won
-// 6. Give the user their winnings
-// 7. Play again
+int		word_counter(char *str)
+{
+	int wc = 0;
+	int i = 0;
+
+	while (str[i] != '\0')
+	{
+		while (str[i] != '\0' && (str[i] == ' ' || str[i] == '	' || str[i] == '\n'))
+			i++;
+		if (str[i] != '\0')
+			wc++;
+		while (str[i] != '\0' && (str[i] != ' ' && str[i] != '	' && str[i] != '\n'))
+			i++;
+	}
+	return (wc);
+}
 
 char    **ft_split(char *str)
 {
+	int wc = word_counter(str);
 
+	char **out = (char **)malloc(sizeof(char *) * (wc + 1));
 }
